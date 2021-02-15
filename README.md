@@ -20,6 +20,8 @@ ruby ev_data_query.rb ev_data.csv charged_above 0.33
 
 To run tests, you'll need rspec installed (`gem install rspec`), then run `rspec spec/` from the root dir.
 
+I use Ruby's `filter` method, so make sure your ruby version is >=2.6.3
+
 ### Considerations and Trade-offs
 - I assumed that the data set wouldn't be too "big", for simplicity's case. If there was a data set with millions of rows, I would consider reading the file in batches. I'd also probably iterate over the rows in the file just once, as opposed to using fancy methods like `filter` and `map` a bunch of times. This would involve caching information like which vehicles we've iterated over so far that have seen a charge drop below the given percentage.
 - I printed the query results to make it easier for the user to see them from the command line, but normally would just return the result.
